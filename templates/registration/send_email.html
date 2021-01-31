@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ message }}
+    <h3>Send Email</h3>
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Your Institute Email </label>
+        <input type="email" name="recipient">
+        <input type="submit">
+
+    </form>
+
+{% endblock content %}
