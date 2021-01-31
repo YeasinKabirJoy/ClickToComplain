@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from UserManagement import views as userMangementView
+from Complain import views as complainView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +26,6 @@ urlpatterns = [
     path('profile/', userMangementView.show_profile, name='profile'),
     path('verify_profile/', userMangementView.send_email, name='send_mail'),
     path('email_verification/', userMangementView.verify_email, name='verification'),
+    path('submit_complain/', complainView.complainForm, name = 'submitcompalin'),
 
 ]
