@@ -2,7 +2,6 @@ migrations/**
 **/migrations
 .idea
 venv/**
-db.sqlite3
 __pycache__/**
 migrations
 **/__pycache__

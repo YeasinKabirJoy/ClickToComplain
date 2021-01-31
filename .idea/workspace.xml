@@ -11,19 +11,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="2c162ff8-9df7-42fa-9496-32951a1c4502" />
+  <component name="JupyterTrust" id="c5d9c520-e9dd-45e2-817c-297682d6be89" />
   <component name="ProjectId" id="1npfHdUotmdEz2hL0aTdh6oMsBU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -63,6 +66,8 @@
       <updated>1612091866269</updated>
       <workItem from="1612091867362" duration="19000" />
       <workItem from="1612103025950" duration="4696000" />
+      <workItem from="1612108124234" duration="783000" />
+      <workItem from="1612109533575" duration="3003000" />
     </task>
     <servers />
   </component>

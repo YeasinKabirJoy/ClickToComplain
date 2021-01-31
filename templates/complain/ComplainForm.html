@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ complain_form.as_p }}
+        <input type="submit">
+    </form>
+
+    {{ msg }}
+{% endblock content %}

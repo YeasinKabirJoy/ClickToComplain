@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from UserManagement import views as userMangementView
 from Complain import views as complainView
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -28,4 +30,4 @@ urlpatterns = [
     path('email_verification/', userMangementView.verify_email, name='verification'),
     path('submit_complain/', complainView.complainForm, name = 'submitcompalin'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
