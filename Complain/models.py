@@ -9,11 +9,6 @@ class Complain(models.Model):
     private = models.BooleanField(default=False)
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)
-
-
-
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     def __str__(self):
         return str(self.id)
