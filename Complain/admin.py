@@ -18,7 +18,7 @@ class MyAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj:  # when editing an object
-            return ['image', 'description', 'private', 'user']
+            return ['image', 'description', 'private', 'tag', 'user']
         return self.readonly_fields
 
 admin.site.register(Complain, MyAdmin)

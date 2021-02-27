@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tagContactFAQ.models import Tag
 
 # Create your models here.
 class Complain(models.Model):
     image = models.ImageField(upload_to='complain/image', blank=True,null=True)
     status = models.CharField(max_length=100, choices=(('Pending', 'Pending'),('Solved', 'Solved')), default='Pending')
     description = models.TextField()
+    tag = models.ManyToManyField(Tag, blank=True)
     private = models.BooleanField(default=False)
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)

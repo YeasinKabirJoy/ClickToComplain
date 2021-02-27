@@ -23,6 +23,8 @@ def complainForm(request):
                     complain = complain_form.save(commit=False)
                     complain.user = request.user
                     complain.save()
+                    for t in request.POST.getlist('tag'):
+                        complain.tag.add(t)
                     complain_form = ComplainForm()
                     msg = 'Your complain has been recorded!'
 

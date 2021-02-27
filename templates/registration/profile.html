@@ -7,7 +7,9 @@
 </head>
 <body>
 {% block content %}
-<p>{{ profile.status }}</p>
+    <p>{{ profile.user.username }}</p>
+    <p>{{ profile.status }}</p>
+    <p>{{ profile.user.date_joined }}</p>
 {% endblock content %}
 </body>
 </html>

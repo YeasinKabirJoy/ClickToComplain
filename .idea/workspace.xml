@@ -87,6 +87,12 @@
       <workItem from="1612108124234" duration="783000" />
       <workItem from="1612109533575" duration="3003000" />
       <workItem from="1612128193335" duration="4752000" />
+      <workItem from="1612167417832" duration="1288000" />
+      <workItem from="1612256802234" duration="559000" />
+      <workItem from="1612380585273" duration="385000" />
+      <workItem from="1612469130370" duration="6456000" />
+      <workItem from="1612648451291" duration="3898000" />
+      <workItem from="1613293044102" duration="4330000" />
     </task>
     <servers />
   </component>
@@ -103,5 +109,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="415" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612476469664">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="415" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1612476469664" />
+    <state x="465" y="139" key="FileChooserDialogImpl" timestamp="1612469186611">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="465" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1612469186611" />
   </component>
 </project>

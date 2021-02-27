@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ complain_form.as_p }}
+        {{ complain_form|crispy}}
+
         <input type="submit">
     </form>
-
+<div class="btn-group" data-toggle="buttons">
+{% for checkbox in complain_form.tag %}
+    <label class="btn">
+    {{ checkbox.tag }} {{ checkbox.choice_label }}
+    </label>
+{% endfor %}
+</div>
     {{ msg }}
 {% endblock content %}
