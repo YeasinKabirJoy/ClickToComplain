@@ -47,7 +47,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\clickToComplain\templates" />
+      <recent name="E:\GitHub\clickToComplain\static" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="clickToComplain" type="Python.DjangoServer" factoryName="Django server">
@@ -93,6 +99,7 @@
       <workItem from="1612469130370" duration="6456000" />
       <workItem from="1612648451291" duration="3898000" />
       <workItem from="1613293044102" duration="4330000" />
+      <workItem from="1614430343539" duration="10019000" />
     </task>
     <servers />
   </component>

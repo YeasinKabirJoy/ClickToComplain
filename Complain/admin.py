@@ -7,6 +7,9 @@ from .models import Complain
 class MyAdmin(admin.ModelAdmin):
     # list_display_links = None
     # fields = ['private']
+    list_display = ('id', 'status','user','date','private')
+    change_list_template = 'change_list_graph.html'
+
     def has_add_permission(self, request, obj=None):
         return False
 
