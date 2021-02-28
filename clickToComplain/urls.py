@@ -30,7 +30,10 @@ urlpatterns = [
     path('email_verification/', userMangementView.verify_email, name='verification'),
     path('submit_complain/', complainView.complainForm, name = 'submitcompalin'),
     path('complain_list/', complainView.showComplain, name = 'complainList'),
-    path('solvedComplainList/', complainView.showSolvedComplain, name='showSolvedComplains')
+    path('complain_list/<int:complain_id>',complainView.complainDetails, name = 'complainDetails'),
+    path('solvedComplainList/', complainView.showSolvedComplain, name='showSolvedComplains'),
+    path('solvedComplainList/<int:complain_id>',complainView.complainDetails, name = 'solvedComplainDetails'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

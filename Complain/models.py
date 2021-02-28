@@ -2,14 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagContactFAQ.models import Tag
 from vote.models import VoteModel
+from UserManagement.models import Profile
 
 
 
 class Comment(models.Model):
 
-    comment = models.TextField(blank=True)
+    comment = models.TextField(default='')
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return str(self.user)

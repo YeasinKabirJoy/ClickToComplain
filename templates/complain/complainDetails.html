@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+    <div class="card mb-3" style="border: 4px solid #220411">
+        {% if complain.image.url != null %}
+             <img src="{{ complain.image.url }}" class="card-img-top" alt="complain-img" height="450px">
+        {% else %}
+            <p class="card-text" >No Image</p>
+        {% endif%}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ complain.user }}</h5>
+            <p class="card-text" > {{ complain.date }}</p>
+            <p class="card-text" > {{ complain.time }}</p>
+            <b>Description:</b><p class="card-text" > {{ complain.description }}</p>
+            <p class="card-text"><small  style="color: #2bb7e2">{{ complain.status }}</small></p>
+
+            <p class="card-text">
+            <b>Tags:</b>
+                {% for t in complain.tag.all %}
+                    {{ t }}
+                {% endfor %}
+           </p>
+
+
+        </div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="radio" id="upvote" name="vote" value="upvote">
+        <label for="upvote">Upvote</label><br>
+
+        <input type="radio" id="downvote" name="vote" value="downvote">
+        <label for="downvote">Downvote</label><br>
+
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+    <br> <br>
+        <b>Comments:</b>
+    <br> <br>
+    <div class="container">
+        {% for c in complain.comment.all %}
+            User: {{ c.user }}<br>
+            Comment: {{ c.comment }} <br><br><br>
+        {% endfor %}
+    </div>
+
+    <br>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ comment_form |crispy }}
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+
+    <br>
+
+
+
+{% endblock content %}
