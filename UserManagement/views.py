@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 import random
 import string
 from .registrationForm import CreateUserForm
-from.models import Profile, RegisteredEmail
+from .models import Profile, RegisteredEmail
 
 
 # Create your views here.

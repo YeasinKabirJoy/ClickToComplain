@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Complain.apps.ComplainConfig',
     'tagContactFAQ.apps.TagandcontactConfig',
     'crispy_forms',
+    'vote',
 
 ]
 
