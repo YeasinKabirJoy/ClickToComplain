@@ -107,8 +107,8 @@ def complainDetails(request, complain_id):
                     comment = comment_form.save(commit=False)
                     comment.user = Profile.objects.get(user=request.user)
                     if comment.comment != '':
-                        c = comment.save()
-                        complain.comment.add(c)
+                        comment.save()
+                        complain.comment.add(comment)
                         complain.save()
                         msg = 'Insertion done!'
                         comment_form = CommentForm()
@@ -151,8 +151,8 @@ def complainDetails(request, complain_id):
                 comment = comment_form.save(commit=False)
                 comment.user = Profile.objects.get(user=request.user)
                 if comment.comment != '':
-                    c = comment.save()
-                    complain.comment.add(c)
+                    comment.save()
+                    complain.comment.add(comment)
                     complain.save()
                     msg = 'Insertion done!'
                     comment_form = CommentForm()

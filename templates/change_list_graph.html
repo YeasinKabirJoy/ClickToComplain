@@ -45,21 +45,8 @@
 
         };
         window.onload = function () {
-            var ctx = document.getElementById("gender-chart");
-            {% regroup cl.queryset|dictsort:"date" by get_gender_display as gender_list %}
-            var lineChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [{% for gender in gender_list %}'{{ gender.grouper }}',{% endfor %}],
-                    datasets: [{
-                        data: [{% for gender in gender_list %}'{{ gender.list|length }}',{% endfor %}],
-                        backgroundColor: [{% for gender in gender_list %}randomColorGenerator(),{% endfor %}]
-                    }]
-                },
-                options: options
-            });
-            ctx = document.getElementById("language-chart");
-            {% regroup cl.queryset|dictsort:"status" by status as grades_list %}
+            var ctx = document.getElementById("grades-chart");
+            {% regroup cl.queryset|dictsort:"date" by date as grades_list %}
             lineChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -71,18 +58,33 @@
                     }]
                 }, options: options
             });
-            ctx = document.getElementById("grades-chart");
-            {% regroup cl.queryset|dictsort:"date" by get_language_display as language_list %}
+            ctx = document.getElementById("language-chart");
+            {% regroup cl.queryset|dictsort:"status" by status as grades_list %}
             lineChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: [{% for language in language_list %}'{{ language.grouper }}',{% endfor %}],
+
+                    labels: [{% for grade in grades_list %}'{{ grade.grouper }}',{% endfor %}],
                     datasets: [{
-                        data: [{% for language in language_list %}'{{ language.list|length }}',{% endfor %}],
-                        backgroundColor: [{% for language in language_list %}randomColorGenerator(),{% endfor %}]
+                        data: [{% for grade in grades_list %}'{{ grade.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for grades in grades_list %}randomColorGenerator(),{% endfor %}]
                     }]
                 }, options: options
             });
+            ctx = document.getElementById("gender-chart");
+            {% regroup cl.queryset|dictsort:"private" by private as grades_list %}
+            lineChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+
+                    labels: [{% for grade in grades_list %}'{{ grade.grouper }}',{% endfor %}],
+                    datasets: [{
+                        data: [{% for grade in grades_list %}'{{ grade.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for grades in grades_list %}randomColorGenerator(),{% endfor %}]
+                    }]
+                }, options: options
+            });
+
         }
     </script>
 {% endblock %}

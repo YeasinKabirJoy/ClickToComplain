@@ -8,7 +8,7 @@ from UserManagement.models import Profile
 
 class Comment(models.Model):
 
-    comment = models.TextField(default='')
+    comment = models.TextField(blank=True, default='')
 
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
 
@@ -33,4 +33,4 @@ class Complain(VoteModel, models.Model):
         return str(self.id)
 
     class Meta:
-        verbose_name = ('')
+        verbose_name = ('Complain')

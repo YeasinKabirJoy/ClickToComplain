@@ -9,6 +9,7 @@ class MyAdmin(admin.ModelAdmin):
     # fields = ['private']
     list_display = ('id', 'status','user','date','private')
     change_list_template = 'change_list_graph.html'
+    # exclude = ('comment',)
 
     def has_add_permission(self, request, obj=None):
         return False
@@ -21,7 +22,7 @@ class MyAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj:  # when editing an object
-            return ['image', 'description', 'private', 'tag', 'user']
+            return ['image', 'description', 'private', 'tag', 'user', 'comment']
         return self.readonly_fields
 
 admin.site.register(Complain, MyAdmin)

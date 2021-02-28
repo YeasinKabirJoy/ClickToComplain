@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from UserManagement import views as userMangementView
 from Complain import views as complainView
+from tagContactFAQ import views as tagView
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path('complain_list/<int:complain_id>',complainView.complainDetails, name = 'complainDetails'),
     path('solvedComplainList/', complainView.showSolvedComplain, name='showSolvedComplains'),
     path('solvedComplainList/<int:complain_id>',complainView.complainDetails, name = 'solvedComplainDetails'),
+    path('info/',tagView.info, name= 'info')
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
