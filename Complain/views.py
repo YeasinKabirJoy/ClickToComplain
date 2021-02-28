@@ -14,7 +14,7 @@ from django.shortcuts import render, get_object_or_404,redirect
 def complainForm(request):
     if  request.user.is_superuser:
         complain_form=''
-        msg='Go to Admin Panel'
+        msg='Sorry, Admins are not allowed to complain.'
     else:
         user_profile = Profile.objects.get(user=request.user)
         if user_profile.status:
@@ -47,35 +47,6 @@ def complainForm(request):
     return render(request, 'Complain/ComplainForm.html', context)
 
 
-
-@login_required
-def commentForm(request):
-    user_profile = Profile.objects.get(user = request.user)
-    if user_profile.status:
-        comment_form = CommentForm()
-        msg = ''
-        if request.method == 'POST':
-            comment_form = CommentForm(request.POST)
-            msg = 'Invalid input'
-
-            if comment_form.is_valid():
-                comment = comment_form.save(commit=False)
-                comment.user = User.objects.get(user=request.user)
-                comment.save()
-                msg = 'Insertion done!'
-                comment_form = CommentForm()
-            else:
-                comment_form = CommentForm()
-                msg = 'Invalid input! Please try again!'
-    else:
-        comment_form = ''
-        msg = 'Sorry !! You are not verified yet!'
-
-    context = {
-        'comment_form': comment_form,
-        'msg': msg
-    }
-    return render(request, 'Complain/CommentForm.html', context)
 
 
 
@@ -134,11 +105,19 @@ def complainDetails(request, complain_id):
 
                 if comment_form.is_valid():
                     comment = comment_form.save(commit=False)
-                    if comment != '':
-                        comment.user = user_profile
-                        comment.save()
+                    comment.user = Profile.objects.get(user=request.user)
+                    if comment.comment != '':
+                        c = comment.save()
+                        complain.comment.add(c)
+                        complain.save()
                         msg = 'Insertion done!'
                         comment_form = CommentForm()
+                    # comment = comment_form.save(commit=False)
+                    # if comment != '':
+                    #     comment.user = user_profile
+                    #     comment.save()
+                    #     msg = 'Insertion done!'
+                    #     comment_form = CommentForm()
                 else:
                     comment_form = CommentForm()
                     msg = 'Invalid input! Please try again!'
@@ -170,11 +149,14 @@ def complainDetails(request, complain_id):
 
             if comment_form.is_valid():
                 comment = comment_form.save(commit=False)
-                if comment != '':
-                    comment.user = request.user
-                    comment.save()
+                comment.user = Profile.objects.get(user=request.user)
+                if comment.comment != '':
+                    c = comment.save()
+                    complain.comment.add(c)
+                    complain.save()
                     msg = 'Insertion done!'
                     comment_form = CommentForm()
+
             else:
                 comment_form = CommentForm()
                 msg = 'Invalid input! Please try again!'

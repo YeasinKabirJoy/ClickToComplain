@@ -48,7 +48,10 @@
         {% for c in complain.comment.all %}
             User: {{ c.user }}<br>
             Comment: {{ c.comment }} <br><br><br>
+
+
         {% endfor %}
+
     </div>
 
     <br>
@@ -62,6 +65,6 @@
     </div>
     <br>
 
-
+    {{ msg }}
 
 {% endblock content %}

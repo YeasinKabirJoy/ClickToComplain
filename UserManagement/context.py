@@ -17,6 +17,6 @@ def verifiedUser(request):
 
 
     context = {
-        'userStatus':userStatus
+        'userStatus': userStatus
     }
     return context
