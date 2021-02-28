@@ -4,8 +4,9 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ complain_form|crispy}}
-
+        {% if userStatus == 'Verified'%}
         <input type="submit">
+        {% endif %}
     </form>
 <div class="btn-group" data-toggle="buttons">
 {% for checkbox in complain_form.tag %}

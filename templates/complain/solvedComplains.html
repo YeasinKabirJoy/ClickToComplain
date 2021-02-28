@@ -2,9 +2,12 @@
 {% load static %}
 
 {% block content %}
+    {% if userStatus == 'notVerified' %}
+            {{ complain }}
+    {% else %}
     <div class="row row-cols-1 row-cols-md-3">
 
-        {% for c in complain %}
+            {% for c in complain %}
 
 
             <div class="col mb-4">
@@ -22,26 +25,18 @@
                         </p>
 
                         {# http://127.0.0.1:8000/products/    #}
-                         <a href="{{c.id}}"><button type="button" class="btn btn-outline-info">Details</button></a>
+
+                        <a href="{{c.id}}"><button type="button" class="btn btn-outline-info">Details</button></a>
+
                     </div>
                 </div>
         </div>
 
         {% endfor %}
 
+    {% endif%}
+
 
     </div>
 
-
-{% for c in complain %}
-    {% if c.image.url != null %}
-            <img src="{{ c.image.url }}">
-        {% else %}
-            <p> </p>
-        {% endif %}
-    {{ c.description }}
-    {{ c.private }}
-    {{ c.status }}
-
-{% endfor %}
 {% endblock content %}

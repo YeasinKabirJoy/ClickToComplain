@@ -28,6 +28,7 @@
 
         </div>
     </div>
+    {% if adminMsg != 'admin' %}
     <form method="POST">
         {% csrf_token %}
 
@@ -39,6 +40,7 @@
 
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
+    {% endif %}
     <br> <br>
         <b>Comments:</b>
     <br> <br>
@@ -58,7 +60,6 @@
             <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
     </div>
-
     <br>
 
 
