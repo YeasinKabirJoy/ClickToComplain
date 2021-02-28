@@ -29,6 +29,8 @@ urlpatterns = [
     path('verify_profile/', userMangementView.send_email, name='send_mail'),
     path('email_verification/', userMangementView.verify_email, name='verification'),
     path('submit_complain/', complainView.complainForm, name = 'submitcompalin'),
+    path('complain_list/', complainView.showComplain, name = 'complainList'),
+    path('solvedComplainList/', complainView.showSolvedComplain, name='showSolvedComplains')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

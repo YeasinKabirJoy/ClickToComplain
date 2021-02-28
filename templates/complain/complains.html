@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3">
+
+        {% for c in complain %}
+
+
+            <div class="col mb-4">
+                <div class="card h-100">
+                    {% if c.image.url != null %}
+
+                        <img src="{{ c.image.url }}" class="card-img-top" alt="...">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ c.description }}</h5>
+                        <p class="card-text">
+                        <h3>{{ c.status }}</h3>
+                        </p>
+
+                        {# http://127.0.0.1:8000/products/    #}
+                        <a href="{{ p.id }}">
+                            {# http://127.0.0.1:8000/products/product_id    #}
+                            <button type="button" class="btn btn-outline-primary">Details</button>
+                        </a>
+                    </div>
+                </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock content %}

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .commentForm import CommentForm
 from django.contrib.auth.forms import User
+from .models import Complain
 
 
 # Create your views here.
@@ -42,37 +43,6 @@ def complainForm(request):
 
 
 
-    #  try:
-    #     user = Profile.objects.get(user=request.user)
-    #     if user.status == False:
-    #         return redirect('send_mail')
-    #     else:
-    #         complain_form = ComplainForm()
-    #         msg = ''
-    #
-    #         if request.method == 'POST':
-    #             complain_form = ComplainForm(request.POST, request.FILES)
-    #             msg = 'Please provide the valid informations!'
-    #
-    #             if complain_form.is_valid():
-    #                 complain = complain_form.save(commit=False)
-    #                 complain.user = request.user
-    #                 complain.save()
-    #                 for t in request.POST.getlist('tag'):
-    #                     complain.tag.add(t)
-    #                 complain_form = ComplainForm()
-    #                 msg = 'Your complain has been recorded!'
-    #
-    #         context = {
-    #             'complain_form': complain_form,
-    #             'msg': msg
-    #         }
-    #         return render(request, 'Complain/ComplainForm.html', context)
-    #
-    # except:
-    #     return redirect('registration')
-
-
 @login_required
 def commentForm(request):
     user_profile = Profile.objects.get(user = request.user)
@@ -103,31 +73,38 @@ def commentForm(request):
     return render(request, 'Complain/CommentForm.html', context)
 
 
-    # if request.method == 'POST':
-    #     comment_form = CommentForm(request.POST)
-    #     msg = 'Invalid input'
-    #
-    #     if comment_form.is_valid():
-    #         comment = comment_form.save(commit=False)
-    #
-    #         try:
-    #             user_profile = Profile.objects.get(profile = request.user)
-    #             if user_profile.profile.status:
-    #                 comment.user = User.objects.get(user=request.user)
-    #                 comment.save()
-    #                 msg = 'Insertion done!'
-    #                 comment_form = CommentForm()
-    #             else:
-    #                 comment_form = CommentForm()
-    #                 msg = 'Sorry !! You are not verified yet!'
-    #         except Exception:
-    #             msg = "Sorry !! You are not verified yet!"
-    #
-    # context = {
-    #     'comment_form': comment_form,
-    #     'msg': msg
-    # }
-    # return render(request, 'Complain/CommentForm.html', context)
+
+
+@login_required
+def showComplain(request):
+    user_profile = Profile.objects.get(user=request.user)
+    if user_profile.status:
+        complain = reversed(Complain.objects.filter(private=False, status= 'Pending'))
+    else:
+       complain = 'Sorry !! You are not verified yet!'
+
+    context = {
+        'complain': complain,
+    }
+    return render(request, 'Complain/complains.html', context)
+
+
+
+@login_required
+def showSolvedComplain(request):
+    user_profile = Profile.objects.get(user=request.user)
+    if user_profile.status:
+        solvedComplain = reversed(Complain.objects.filter(private=False, status= 'Solved'))
+    else:
+        solvedComplain = 'Sorry !! You are not verified yet!'
+
+    context = {
+        'complain': solvedComplain,
+    }
+    return render(request, 'Complain/solvedComplains.html', context)
+
+
+
 
 
 
