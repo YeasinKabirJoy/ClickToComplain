@@ -24,6 +24,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',complainView.homepage, name = 'home'),
     path('registration/', userMangementView.registration, name='registration'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('profile/', userMangementView.show_profile, name='profile'),
@@ -43,3 +44,13 @@ urlpatterns = [
 admin.site.site_header = "C2C Admin"
 admin.site.site_title = "C2C Admin"
 admin.site.index_title = "Welcome to Click To Complian Admin"
+
+
+
+
+# task
+# 1.email verification design
+# 2.home page
+# 3.info
+# 4.chart
+#5.searching

@@ -145,3 +145,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'contact.c2c.bd@gmail.com'
 EMAIL_HOST_PASSWORD = 'click2complain'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL ='home'

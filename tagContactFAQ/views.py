@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def info():
-    pass
+def info(request):
+    return render(request,'tagContactFAQ/info.html')

@@ -173,6 +173,7 @@ def complainDetails(request, complain_id):
     return render(request, 'Complain/complainDetails.html', context)
 
 
-
+def homepage(request):
+    return render(request,'home.html')
 
 

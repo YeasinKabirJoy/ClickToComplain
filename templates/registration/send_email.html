@@ -2,15 +2,18 @@
 
 {% block content %}
     {{ message }}
-    <h3>Send Email</h3>
-    <form method="POST">
-
-        {% csrf_token %}
-
-        <label>Your Institute Email </label>
-        <input type="email" name="recipient">
-        <input type="submit">
-
-    </form>
+    <div class="card">
+        <div class="card-header">
+            Send Email
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Your Institute Email</h5>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="email" name="recipient">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
 
 {% endblock content %}
