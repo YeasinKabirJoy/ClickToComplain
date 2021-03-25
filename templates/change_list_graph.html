@@ -4,17 +4,25 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
     <script>
         var randomColorGenerator = function () {
             return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
         };
         var options = {
 
+            plugins: {
+        labels: {
+          render: 'value',
+          fontColor: ['black', 'black', ]
+        }
+      },
+
+
             responsive: true,
             maintainAspectRatio: true,
-            legend: {
-                position: 'left'
-            },
+
             title: {
                 display: true
             },
@@ -27,7 +35,6 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Month'
                             }
                         }],
                     yAxes: [{
@@ -41,46 +48,92 @@
                         }]
                 },
 
-
-
         };
+
+        var options1={
+
+             plugins: {
+        labels: {
+          render: 'value',
+          fontColor: ['black', 'black', ]
+        }
+      },
+
+
+            responsive: true,
+            maintainAspectRatio: true,
+
+            title: {
+                display: true
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            },
+            scales: {
+                    xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                                steps: 5,
+                                stepValue: 1,
+                                max: 20
+                            }
+                        }]
+                },
+
+            legend: {
+                display:false,
+            },
+        }
+
+
         window.onload = function () {
-            var ctx = document.getElementById("grades-chart");
-            {% regroup cl.queryset|dictsort:"date" by date as grades_list %}
+            var ctx = document.getElementById("date-chart");
+            {% regroup cl.queryset|dictsort:"date" by date as date_list %}
             lineChart = new Chart(ctx, {
                 type: 'bar',
+
                 data: {
 
-                    labels: [{% for grade in grades_list %}'{{ grade.grouper }}',{% endfor %}],
+                    label: 'date',
+                    labels: [{% for date in date_list %}'{{ date.grouper }}',{% endfor %}],
                     datasets: [{
-                        data: [{% for grade in grades_list %}'{{ grade.list|length }}',{% endfor %}],
-                        backgroundColor: [{% for grades in grades_list %}randomColorGenerator(),{% endfor %}]
+                        data: [{% for date in date_list %}'{{ date.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for date in date_list %}randomColorGenerator(),{% endfor %}]
                     }]
-                }, options: options
+                }, options: options1
             });
-            ctx = document.getElementById("language-chart");
-            {% regroup cl.queryset|dictsort:"status" by status as grades_list %}
+
+            ctx = document.getElementById("status-chart");
+            {% regroup cl.queryset|dictsort:"status" by status as status_list %}
             lineChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
 
-                    labels: [{% for grade in grades_list %}'{{ grade.grouper }}',{% endfor %}],
+                    labels: [{% for status in status_list %}'{{ status.grouper }}',{% endfor %}],
                     datasets: [{
-                        data: [{% for grade in grades_list %}'{{ grade.list|length }}',{% endfor %}],
-                        backgroundColor: [{% for grades in grades_list %}randomColorGenerator(),{% endfor %}]
+                        data: [{% for status in status_list %}'{{ status.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for status in status_list %}randomColorGenerator(),{% endfor %}]
                     }]
                 }, options: options
             });
-            ctx = document.getElementById("gender-chart");
-            {% regroup cl.queryset|dictsort:"private" by private as grades_list %}
+            ctx = document.getElementById("private-chart");
+            {% regroup cl.queryset|dictsort:"private" by private as private_list %}
             lineChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
 
-                    labels: [{% for grade in grades_list %}'{{ grade.grouper }}',{% endfor %}],
+                    labels: ['public','private'],
                     datasets: [{
-                        data: [{% for grade in grades_list %}'{{ grade.list|length }}',{% endfor %}],
-                        backgroundColor: [{% for grades in grades_list %}randomColorGenerator(),{% endfor %}]
+                        data: [{% for private in private_list %}'{{ private.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for private in private_list %}randomColorGenerator(),{% endfor %}]
                     }]
                 }, options: options
             });
@@ -93,13 +146,13 @@
     <hr>
     <div class="row">
         <div class="col-sm-4">
-            <canvas id="gender-chart" style="width: 100px !important;"></canvas>
+            <canvas id="date-chart" style="width: 100px !important;"></canvas>
         </div>
         <div class="col-sm-4">
-            <canvas id="language-chart" style="width: 100px !important;"></canvas>
+            <canvas id="status-chart" style="width: 100px !important;"></canvas>
         </div>
         <div class="col-sm-4">
-            <canvas id="grades-chart" style="width: 100px !important;"></canvas>
+            <canvas id="private-chart" style="width: 100px !important;"></canvas>
         </div>
     </div>
     {{ block.super }}
