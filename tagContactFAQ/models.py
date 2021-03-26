@@ -9,7 +9,7 @@ class Tag(models.Model):
         return self.tag_name
 
 class Info(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     phone_no = models.IntegerField(unique=True)
 
