@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>Contact</title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'InfoNContact/infocss/infocss.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'infoNcontact/infoCss/infocss.css' %}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
   <div class="row">
     <div class="column column_uap">
 
-     <img src="{% static 'image/uap.png' %}"class="contact_image uap_logo">
+     <img src="{% static 'infoNcontact/image/uap.png' %}"class="contact_image uap_logo">
         <h3>Address of UAP</h3>
         <p>A,Green Road,<br>
          Dhaka-1205,<br>
@@ -34,20 +34,24 @@
     </div>
 
     <div class="column column_admin" >
-       <img src="{% static 'image/email.jpg' %}"class="contact_image">
+       <img src="{% static 'infoNcontact/image/email.jpg' %}"class="contact_image">
         <h3>Request for proposal</h3>
-        {% for i in info  %}
-            <p>{{ i.email }}</p>
-        {% endfor  %}
+        <p>Admin1 : admin1@uap-bd.edu<br>
+            Admin2 : admin2@uap-bd.edu<br>
+             Admin3 : admin3@uap-bd.edu<br></p>
    </div>
     <div class="column column_call_us" >
-        <img src="{% static 'image/call.png' %}"class="contact_image">
+        <img src="{% static 'infoNcontact/image/call.png' %}"class="contact_image">
         <h3>Contacts</h3>
+        <p>Contact 1: 015-xxxxxxxxx<br>
+        Contact 2: 017-xxxxxxxxx<br>
+      </p>
 
         {% for i in info  %}
           <p>{{ i.phone_no }}</p>
           {% endfor  %}
     </div>
+
   </div>
   <div class="social_logo">
       <a class="btn1" href='#'><i class="fab fa-facebook-f"></i></a>
@@ -63,3 +67,4 @@
 </html>
 
 {% endblock content %}
+

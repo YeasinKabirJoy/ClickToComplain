@@ -39,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="d5f31af8-2827-4e71-8890-9867ba1b002d" />
+  <component name="JupyterTrust" id="2c162ff8-9df7-42fa-9496-32951a1c4502" />
   <component name="ProjectId" id="1npfHdUotmdEz2hL0aTdh6oMsBU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,10 +50,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ComplainManagementSystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/infoNcontact/infoCss" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\3-2\CSE 322\ClickToComplain\static\infoNcontact\infoCss" />
+      <recent name="D:\3-2\CSE 322\ClickToComplain\static\infoNcontact\image" />
       <recent name="E:\GitHub\clickToComplain\templates" />
       <recent name="E:\GitHub\clickToComplain\static" />
     </key>
@@ -120,6 +122,7 @@
       <workItem from="1615749832078" duration="1352000" />
       <workItem from="1615790079930" duration="928000" />
       <workItem from="1616710993757" duration="2049000" />
+      <workItem from="1616742172821" duration="2111000" />
     </task>
     <servers />
   </component>
