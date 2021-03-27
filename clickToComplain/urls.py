@@ -35,7 +35,8 @@ urlpatterns = [
     path('complain_list/<int:complain_id>',complainView.complainDetails, name = 'complainDetails'),
     path('solvedComplainList/', complainView.showSolvedComplain, name='showSolvedComplains'),
     path('solvedComplainList/<int:complain_id>',complainView.complainDetails, name = 'solvedComplainDetails'),
-    path('info/',tagView.info, name= 'info')
+    path('info/',tagView.info, name= 'info'),
+    path('faq/',tagView.showFAQ, name= 'faq'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

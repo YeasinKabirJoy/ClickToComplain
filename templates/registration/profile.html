@@ -14,12 +14,13 @@
   <div class="card-body">
     <h4 class="card-title">{{ profile.user.username }}</h4>
     <p class="card-text">
-        {% if profile.user.status == true %}
+        {% if profile.status %}
           <p><b>Status: </b>Verified</p>
-      {% else %}
-       <p><b>Status: </b>Not Verified</p>
+        {% else %}
+         <p><b>Status: </b>Not Verified</p>
+        {% endif %}
 
-      {% endif %}
+
   </p>
 {#    <a href="#" class="btn btn-primary">Go somewhere</a>#}
   </div>

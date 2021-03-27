@@ -32,15 +32,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="d5f31af8-2827-4e71-8890-9867ba1b002d" />
+  <component name="JupyterTrust" id="2c162ff8-9df7-42fa-9496-32951a1c4502" />
   <component name="ProjectId" id="1npfHdUotmdEz2hL0aTdh6oMsBU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -129,6 +129,7 @@
       <workItem from="1616744718815" duration="3575000" />
       <workItem from="1616748528102" duration="1012000" />
       <workItem from="1616760649254" duration="2484000" />
+      <workItem from="1616828693057" duration="1480000" />
     </task>
     <servers />
   </component>
