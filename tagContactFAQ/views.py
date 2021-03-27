@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import FAQ
+from .models import FAQ,Info
 
 # Create your views here.
 def info(request):
@@ -10,5 +10,12 @@ def showFAQ(request):
     context={
         'faq': faq,
     }
-
     return render(request,'tagContactFAQ/faq.html',context)
+
+def showInfo(request):
+    info = Info.objects.all()
+    context={
+        'info':info
+    }
+
+    return render(request,'tagContactFAQ/info.html',context)

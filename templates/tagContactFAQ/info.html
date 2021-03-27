@@ -36,20 +36,19 @@
     <div class="column column_admin" >
        <img src="{% static 'infoNcontact/image/email.jpg' %}"class="contact_image">
         <h3>Request for proposal</h3>
-        <p>Admin1 : admin1@uap-bd.edu<br>
-            Admin2 : admin2@uap-bd.edu<br>
-             Admin3 : admin3@uap-bd.edu<br></p>
+        {% for i in info %}
+            <p>{{ i.name }} :<br> {{ i.email }}</p>
+        {% endfor %}
+
    </div>
     <div class="column column_call_us" >
         <img src="{% static 'infoNcontact/image/call.png' %}"class="contact_image">
         <h3>Contacts</h3>
-        <p>Contact 1: 015-xxxxxxxxx<br>
-        Contact 2: 017-xxxxxxxxx<br>
-      </p>
+        {% for i in info %}
+            <p><i></i> : {{ i.phone_no }}</p>
+        {% endfor %}
 
-{#        {% for i in info  %}#}
-{#          <p>{{ i.phone_no }}</p>#}
-{#          {% endfor  %}#}
+      </p>
     </div>
 
   </div>

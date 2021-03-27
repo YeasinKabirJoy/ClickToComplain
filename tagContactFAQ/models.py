@@ -11,11 +11,10 @@ class Tag(models.Model):
 class Info(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
-    phone_no = models.IntegerField(unique=True)
-
+    phone_no = models.CharField(max_length=20)
 
     def __str__(self):
-        return str(self.id)
+        return self.name
 
 class FAQ(models.Model):
     question = models.TextField()
