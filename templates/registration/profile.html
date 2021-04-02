@@ -29,7 +29,35 @@
       <b>Joining date: </b>{{ profile.user.date_joined }}
   </div>
 </div>
-
+{#    {% if complain != "" %}#}
+{##}
+{#        <div class="alert alert-dark" role="alert" style="text-align: center; background-color: #70c3cb" style="margin-bottom: 2%">#}
+{#             Complain History#}
+{#        </div>#}
+{#       {% for c in complain %}#}
+{#            <div class="card mb-3" style="border: 6px solid #100367">#}
+{#            {% if c.image.url != null %}#}
+{#                <img src="{{ c.image.url }}" class="card-img-top" alt="complain-img"  height="230px">#}
+{#            {% else %}#}
+{#                 <p class="card-text"></p>#}
+{#            {% endif%}#}
+{##}
+{#            <div class="card-body">#}
+{#            <h5 class="card-title" style="color: darkred">{{ c.user }}</h5>#}
+{#            <p class="card-text" style="color:#555;"> {{ c.description }}</p>#}
+{#            <p class="card-text"><small class="text-muted">{{ c.type }}</small></p>#}
+{#            <p class="card-text"><small ><span style="color: green">UpVote:</span> {{ c.num_vote_up }}</small></p>#}
+{#            <p class="card-text"><small ><span style="color: red">DownVote:</span>  {{ c.num_vote_down }}</small></p>#}
+{#             <div>#}
+{#            <a href="{{c.id}}"><button type="button" class="btn btn-outline-info">Details</button></a>#}
+{#            </div>#}
+{#            </div>#}
+{##}
+{#            </div>#}
+{##}
+{#       {% endfor %}#}
+{##}
+{#    {% endif%}#}
 
 {#    <p>{{ profile.user.username }}</p>#}
 {#    <p>{{ profile.status }}</p>#}

@@ -109,7 +109,8 @@ def complainDetails(request, complain_id):
             msg = ''
             if request.method == 'POST':
                 comment_form = CommentForm(request.POST)
-                msg = 'Invalid input'
+                msg = ''
+
 
                 if comment_form.is_valid():
                     comment = comment_form.save(commit=False)
@@ -130,19 +131,32 @@ def complainDetails(request, complain_id):
                     comment_form = CommentForm()
                     msg = 'Invalid input! Please try again!'
 
+            vote = request.POST.get("vote")
 
-                vote = request.POST.get("vote")
+            if complain.votes.exists(request.user.id):
+                pass
+            else:
+                if vote == "upvote":
+                    complain.votes.up(request.user.id)
 
-                if complain.votes.exists(request.user.id):
-                    pass
+                elif vote == "downvote":
+                    complain.votes.down(request.user.id)
                 else:
-                    if vote == "upvote":
-                        complain.votes.up(request.user.id)
+                    pass
 
-                    elif vote == "downvote":
-                        complain.votes.down(request.user.id)
-                    else:
-                        pass
+                # vote = request.POST.get("vote")
+                #
+                #
+                # if complain.votes.exists(request.user.id):
+                #     pass
+                # else:
+                #     if vote == "upvote":
+                #         complain.votes.up(request.user.id)
+                #
+                #     elif vote == "downvote":
+                #         complain.votes.down(request.user.id)
+                #     else:
+                #         pass
 
         else:
             comment_form = ''
@@ -153,7 +167,7 @@ def complainDetails(request, complain_id):
         msg = ''
         if request.method == 'POST':
             comment_form = CommentForm(request.POST)
-            msg = 'Invalid input'
+            msg = ''
 
             if comment_form.is_valid():
                 comment = comment_form.save(commit=False)

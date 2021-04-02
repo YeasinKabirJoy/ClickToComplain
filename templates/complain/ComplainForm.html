@@ -8,12 +8,12 @@
         <input type="submit">
         {% endif %}
     </form>
-<div class="btn-group" data-toggle="buttons">
-{% for checkbox in complain_form.tag %}
-    <label class="btn">
-    {{ checkbox.tag }} {{ checkbox.choice_label }}
-    </label>
-{% endfor %}
-</div>
+{#<div class="btn-group" data-toggle="buttons">#}
+{#{% for checkbox in complain_form.tag %}#}
+{#    <label class="btn">#}
+{#    {{ checkbox.tag }} {{ checkbox.choice_label }}#}
+{#    </label>#}
+{#{% endfor %}#}
+{#</div>#}
     {{ msg }}
 {% endblock content %}

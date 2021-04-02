@@ -14,7 +14,7 @@
                 <div class="card h-100">
                     {% if c.image.url != null %}
 
-                        <img src="{{ c.image.url }}" class="card-img-top" alt="...">
+                        <img src="{{ c.image.url }}" class="card-img-top" alt="..." height="230px">
                     {% else %}
                         <p></p>
                     {% endif %}
@@ -23,6 +23,8 @@
                         <p class="card-text">
                         <h3>{{ c.status }}</h3>
                         </p>
+                         <p class="card-text"><small ><span style="color: green">UpVote:</span> {{ c.num_vote_up }}</small></p>
+        <p class="card-text"><small ><span style="color: #ff0000">DownVote:</span>  {{ c.num_vote_down }}</small></p>
 
                         {# http://127.0.0.1:8000/products/    #}
 
