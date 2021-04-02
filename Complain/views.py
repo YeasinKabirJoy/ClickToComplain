@@ -57,12 +57,16 @@ def showComplain(request):
         user_profile = Profile.objects.get(user=request.user)
         if user_profile.status:
             complain =Complain.objects.filter(private=False, status= 'Pending')
+            if request.method == "POST":
+                complain = Complain.objects.filter(tag__tag_name__icontains=request.POST['search'])
             complain=reversed(complain)
         else:
            complain = 'Sorry !! You are not verified yet!'
     else:
         complain = Complain.objects.filter(private=False, status='Pending')
-        complain=reversed(complain)
+        if request.method == "POST":
+            complain = Complain.objects.filter(tag__tag_name__icontains=request.POST['search'])
+        complain = reversed(complain)
 
     context = {
         'complain': complain,
@@ -77,12 +81,16 @@ def showSolvedComplain(request):
         user_profile = Profile.objects.get(user=request.user)
         if user_profile.status:
             solvedComplain = Complain.objects.filter(private=False, status= 'Solved')
-            solvedComplain=reversed(solvedComplain)
+            if request.method == "POST":
+                solvedComplain = Complain.objects.filter(tag__tag_name__icontains=request.POST['search'])
+            solvedComplain = reversed(solvedComplain)
         else:
             solvedComplain = 'Sorry !! You are not verified yet!'
     else:
         solvedComplain = Complain.objects.filter(private=False, status='Solved')
-        solvedComplain=reversed(solvedComplain)
+        if request.method == "POST":
+            solvedComplain = Complain.objects.filter(tag__tag_name__icontains=request.POST['search'])
+        solvedComplain = reversed(solvedComplain)
     context = {
         'complain': solvedComplain,
     }
