@@ -45,7 +45,7 @@
         <img src="{% static 'infoNcontact/image/call.png' %}"class="contact_image">
         <h3>Contacts</h3>
         {% for i in info %}
-            <p><i></i> : {{ i.phone_no }}</p>
+            <p><i class="fas fa-phone-volume" style="color: #2bb7e2;"></i> : 0{{ i.phone_no }}</p>
         {% endfor %}
 
       </p>

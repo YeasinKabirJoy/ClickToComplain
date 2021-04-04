@@ -9,23 +9,19 @@ from .models import Profile, RegisteredEmail
 
 # Create your views here.
 
-v_code = '123'
+# v_code = '123'
 def registration(request):
     form = CreateUserForm()
-    msg = ""
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        msg = "Invalid Input"
         if form.is_valid():
             user = form.save()
             profile = Profile(user=user)
             profile.save()
-            msg = "Registration Successful!"
             form = CreateUserForm()
             return redirect('login')
     context = {
-        "message": msg,
         'form': form,
     }
     return render(request, 'registration/registration.html', context)
@@ -85,7 +81,7 @@ def send_email(request):
             subject = 'C2C Registration'
 
             code = id_generator()
-            v_code = code
+            # v_code = code
             request.session['v_code'] = code
             request.session['email'] = email
 
@@ -129,7 +125,7 @@ def verify_email(request):
         if request.session['v_code'] == code:
             email=RegisteredEmail(email=request.session['email'])
             email.save()
-            message = "Successful! Your account if activated now!"
+            message = "Successful! Your account is activated now!"
             profile = Profile.objects.get(user=request.user)
             profile.status = True
             profile.save()

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="{% static 'home/footer/footercss.css' %}">
+    <link rel="icon" href="{% static 'favicon-16x16.png' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -15,7 +16,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 50px;">
-    <a class="navbar-brand" href="#">Click to Complain</a>
+    <a class="navbar-brand" href="#"><img src="{% static 'favicon-32x32.png' %}"style="margin-right: 5px">Click to Complain</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
             aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
                         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-link" href="{% url 'profile' %}" name="profile">Profile</a>
                     </li>
 
                      <li class="nav-item active">
@@ -48,10 +49,10 @@
                         </ul>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'info' %}">Info<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'info' %}" name="info">Info<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'faq' %}">FAQ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'faq' %}" name="faq">FAQ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'logout' %}" name="logout">Logout<span class="sr-only">(current)</span></a>
@@ -64,16 +65,16 @@
                         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                         <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                         <a class="nav-link" href="{% url 'profile' %}" name="profile">Profile</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'send_mail' %}">Verify Yourself<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'info' %}">Info<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'info' %}" name="info">Info<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'faq' %}">FAQ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'faq' %}" name="faq">FAQ<span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
@@ -87,7 +88,7 @@
                          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                         <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                         <a class="nav-link" href="{% url 'profile' %}" name="profile">Profile</a>
                     </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
@@ -95,15 +96,15 @@
                             Complaints
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="{% url 'complainList' %}">Pending Complaints</a></li>
+                            <li><a class="dropdown-item" href="{% url 'complainList' %}"name="complain_list">Pending Complaints</a></li>
                             <li><a class="dropdown-item" href="{% url 'showSolvedComplains' %}">Solved Complaints</a></li>
                         </ul>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'info' %}">Info<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'info' %}" name="info">Info<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'faq' %}">FAQ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'faq' %}" name="faq">FAQ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'logout' %}" name="logout">Logout<span class="sr-only">(current)</span></a>
